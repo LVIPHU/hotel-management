@@ -52,7 +52,7 @@ const UserDetails = (props: { params: { id: string } }) => {
       console.log(data);
       toast.success('Review Submitted');
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error('Review Failed');
     } finally {
       setRatingText('');

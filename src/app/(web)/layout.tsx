@@ -16,7 +16,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: 'Hotel Management App',
+  title: 'zerohomestay',
   description: 'Discover the best hotel rooms',
 };
 

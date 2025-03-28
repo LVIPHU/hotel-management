@@ -3,6 +3,7 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import {formatMoney} from "@/utils";
 
 type Props = {
   checkinDate: Date | null;
@@ -54,13 +55,13 @@ const BookRoomCta: FC<Props> = props => {
         <span
           className={`${discount ? 'text-gray-400' : ''} font-bold text-xl`}
         >
-          {price} ₫ / 1 Đêm
+          {formatMoney(price)} ₫ / 1 Đêm
         </span>
         {discount ? (
           <span className='font-bold text-xl'>
             {' '}
-            | Giảm giá {discount}%. Ngay bây giờ{' '}
-            <span className='text-tertiary-dark'>{discountPrice} ₫</span>
+            | Giảm giá {discount}%. Ngay bây giờ chỉ còn{'  '}
+            <span className='text-tertiary-dark'> {formatMoney(discountPrice)} ₫</span>
           </span>
         ) : (
           ''
@@ -145,7 +146,7 @@ const BookRoomCta: FC<Props> = props => {
       </div>
 
       {calcNoOfDays() > 0 ? (
-        <p className='mt-3 w-full text-right'>Tổng số tiền: {calcNoOfDays() * discountPrice} ₫</p>
+        <p className='mt-3 w-full text-right'>Tổng số tiền: {formatMoney(calcNoOfDays() * discountPrice)} ₫</p>
       ) : (
         <></>
       )}

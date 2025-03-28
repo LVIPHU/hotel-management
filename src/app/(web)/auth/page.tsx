@@ -51,7 +51,7 @@ const Auth = () => {
         toast.success('Success. Please sign in');
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error("Something wen't wrong");
     } finally {
       setFormData(defaultFormData);
@@ -59,13 +59,13 @@ const Auth = () => {
   };
 
   return (
-    <section className='container mx-auto'>
-      <div className='p-6 space-y-4 md:space-y-6 sm:p-8 w-80 md:w-[70%] mx-auto'>
+    <section>
+      <div className='p-2 space-y-4 md:space-y-6 sm:p-8 w-full md:w-[70%] mx-auto'>
         <div className='flex mb-8 flex-col md:flex-row items-center justify-between'>
           <h1 className='text-xl font-bold leading-tight tracking-tight md:text-2xl'>
-            Create an account
+            Tạo Tài Khoản
           </h1>
-          <p>OR</p>
+          <p>HOẶC</p>
           <span className='inline-flex items-center'>
             <AiFillGithub
               onClick={loginHandler}
@@ -111,14 +111,15 @@ const Auth = () => {
 
           <button
             type='submit'
-            className='w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+            className='w-full text-white bg-tertiary-light focus:outline-none font-semibold rounded-lg text-lg px-5 py-3 text-center'
           >
-            Sign Up
+            Đăng Ký
           </button>
         </form>
-
-        <button onClick={loginHandler} className='text-blue-700 underline'>
-          login
+        <div className='my-32 w-full h-[1px] bg-gray-200'></div>
+        <button onClick={loginHandler}
+                className='w-full text-white bg-primary focus:outline-none font-semibold rounded-lg text-lg px-5 py-3 text-center'>
+          Trang Đăng Nhập
         </button>
       </div>
     </section>

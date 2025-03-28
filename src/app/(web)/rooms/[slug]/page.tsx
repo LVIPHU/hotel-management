@@ -78,7 +78,7 @@ const RoomDetails = (props: { params: { slug: string } }) => {
         }
       }
     } catch (error) {
-      console.log('Error: ', error);
+      console.error(error);
       toast.error('An error occured');
     }
   };
@@ -101,17 +101,17 @@ const RoomDetails = (props: { params: { slug: string } }) => {
               <h2 className='font-bold text-left text-lg md:text-2xl'>
                 {room.name} ({room.dimension})
               </h2>
-              <div className='flex my-11'>
+              <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-3 my-11">
                 {room?.offeredAmenities?.map(amenity => (
-                  <div
-                    key={amenity._key}
-                    className='md:w-44 w-fit text-center px-2 md:px-0 h-20 md:h-40 mr-3 bg-[#eff0f2] dark:bg-gray-800 rounded-lg grid place-content-center'
-                  >
-                    <i className={`fa-solid ${amenity.icon} md:text-2xl`}></i>
-                    <p className='text-xs md:text-base pt-3'>
-                      {amenity.amenity}
-                    </p>
-                  </div>
+                    <div
+                        key={amenity._key}
+                        className=" w-full text-center px-2 md:px-0 h-20 md:h-40 bg-[#eff0f2] dark:bg-gray-800 rounded-lg grid place-content-center"
+                    >
+                      <i className={`fa-solid ${amenity.icon} md:text-2xl`}></i>
+                      <p className="text-xs md:text-base pt-3">
+                        {amenity.amenity}
+                      </p>
+                    </div>
                 ))}
               </div>
               <div className='mb-11'>
@@ -122,8 +122,8 @@ const RoomDetails = (props: { params: { slug: string } }) => {
                 <h2 className='font-bold text-3xl mb-2'>Tiện nghi có sẵn</h2>
                 <div className='grid grid-cols-2'>
                   {room?.offeredAmenities?.map(amenity => (
-                    <div
-                      key={amenity._key}
+                      <div
+                          key={amenity._key}
                       className='flex items-center md:my-0 my-1'
                     >
                       <i className={`fa-solid ${amenity.icon}`}></i>

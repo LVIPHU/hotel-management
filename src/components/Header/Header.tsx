@@ -18,12 +18,12 @@ const Header = () => {
   return (
     <header
         className='py-10 px-4 container mx-auto text-xl flex flex-wrap md:flex-nowrap items-center justify-between'>
-      <div className='flex gap-x-6 items-center w-full md:2/3'>
+      <div className='flex gap-x-6 items-center w-full md:w-2/3'>
         <Link href={'/'} className={'cursor-pointer'}>
-          <Image src={'/images/logo.png'} alt={'logo'} width={100} height={100}/>
+          <Image src={'/images/logo-removebg.png'} alt={'logo'} width={100} height={100}/>
         </Link>
 
-        <ul className='flex items-center justify-between w-full md:w-1/3'>
+        <ul className='flex items-center justify-between w-full md:w-2/3'>
           <li className='hover:-translate-y-2 duration-500 transition-all'>
             <Link href='/'>TRANG CHỦ</Link>
           </li>
@@ -31,7 +31,10 @@ const Header = () => {
             <Link href='/rooms'>CÁC CĂN HỘ</Link>
           </li>
           <li className='hover:-translate-y-2 duration-500 transition-all'>
-            <Link href='/'>LIÊN HỆ</Link>
+            <Link href='/contact'>LIÊN HỆ</Link>
+          </li>
+          <li className='hover:-translate-y-2 duration-500 transition-all'>
+            <Link href='/about'>VỀ CHÚNG TÔI</Link>
           </li>
         </ul>
       </div>
@@ -56,11 +59,11 @@ const Header = () => {
             </Link>
           ) : (
             <Link href='/auth'>
-              <RiLoginCircleFill className='cursor-pointe text-3xlr'/>
+              <RiLoginCircleFill className='cursor-pointe text-3xl'/>
             </Link>
           )}
         </li>
-        <li className='ml-2'>
+        <li>
           {darkTheme ? (
             <MdOutlineLightMode
               className='cursor-pointer text-3xl'

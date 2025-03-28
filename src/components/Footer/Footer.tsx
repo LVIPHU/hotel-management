@@ -8,11 +8,11 @@ const Footer = () => {
   return (
     <footer className='mt-16'>
       <div className='container mx-auto px-4'>
-        <div className='flex flex-wrap gap-16 items-center justify-between'>
+        <div className='flex flex-col md:flex-row flex-wrap gap-y-2 gap-x-16 items-start md:items-center justify-between'>
           <div className='flex-1'>
             <div className='flex gap-x-2 items-center py-6'>
               <Link href='/'>
-                <Image src={'/images/logo.png'} alt={'logo'} width={100} height={100} className={'cursor-pointer'}/>
+                <Image src={'/images/logo-removebg.png'} alt={'logo'} width={100} height={100} className={'cursor-pointer'}/>
               </Link>
               <h4 className='font-semibold text-lg '>VỀ CHÚNG TÔI</h4>
             </div>

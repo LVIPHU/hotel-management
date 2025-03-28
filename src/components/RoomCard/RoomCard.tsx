@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { Room } from '@/models/room';
 import Link from 'next/link';
+import {formatMoney} from "@/utils";
 
 type Props = {
   room: Room;
@@ -28,7 +29,7 @@ const RoomCard: FC<Props> = props => {
       <div className='p-4 bg-white'>
         <div className='flex flex-col gap-y-3 text-xl font-semibold'>
           <p>{name}</p>
-          <p className={'w-full text-right'}>{price} ₫ / 1 Đêm</p>
+          <p className={'w-full text-right'}>{formatMoney(price)} ₫ / 1 Đêm</p>
         </div>
 
         <p className='pt-2 text-md'>{type}</p>
