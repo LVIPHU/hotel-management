@@ -2,9 +2,7 @@
 
 import useSWR from 'swr';
 import { MdOutlineCleaningServices } from 'react-icons/md';
-import { LiaFireExtinguisherSolid } from 'react-icons/lia';
 import { AiOutlineMedicineBox } from 'react-icons/ai';
-import { GiSmokeBomb } from 'react-icons/gi';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -15,6 +13,8 @@ import BookRoomCta from '@/components/BookRoomCta/BookRoomCta';
 import toast from 'react-hot-toast';
 import { getStripe } from '@/libs/stripe';
 import RoomReview from '@/components/RoomReview/RoomReview';
+import {TbAlarmSmoke} from "react-icons/tb";
+import {LiaFireExtinguisherSolid} from "react-icons/lia";
 
 const RoomDetails = (props: { params: { slug: string } }) => {
   const {
@@ -115,11 +115,11 @@ const RoomDetails = (props: { params: { slug: string } }) => {
                 ))}
               </div>
               <div className='mb-11'>
-                <h2 className='font-bold text-3xl mb-2'>Description</h2>
+                <h2 className='font-bold text-3xl mb-2'>Mô tả</h2>
                 <p>{room.description}</p>
               </div>
               <div className='mb-11'>
-                <h2 className='font-bold text-3xl mb-2'>Offered Amenities</h2>
+                <h2 className='font-bold text-3xl mb-2'>Tiện nghi có sẵn</h2>
                 <div className='grid grid-cols-2'>
                   {room?.offeredAmenities?.map(amenity => (
                     <div
@@ -135,34 +135,34 @@ const RoomDetails = (props: { params: { slug: string } }) => {
                 </div>
               </div>
               <div className='mb-11'>
-                <h2 className='font-bold text-3xl mb-2'>Safety And Hygiene</h2>
-                <div className='grid grid-cols-2'>
+                <h2 className='font-bold text-3xl mb-2'>An Toàn Và Vệ Sinh</h2>
+                <div className='grid grid-cols-2 gap-3'>
                   <div className='flex items-center my-1 md:my-0'>
-                    <MdOutlineCleaningServices />
-                    <p className='ml-2 md:text-base text-xs'>Daily Cleaning</p>
+                    <MdOutlineCleaningServices className={'text-2xl'}/>
+                    <p className='ml-2 md:text-base text-xs'>Dọn dẹp hàng ngày</p>
                   </div>
                   <div className='flex items-center my-1 md:my-0'>
-                    <LiaFireExtinguisherSolid />
+                    <LiaFireExtinguisherSolid className={'text-3xl'}/>
                     <p className='ml-2 md:text-base text-xs'>
-                      Fire Extinguishers
+                      Bình chữa cháy
                     </p>
                   </div>
                   <div className='flex items-center my-1 md:my-0'>
-                    <AiOutlineMedicineBox />
+                    <AiOutlineMedicineBox className={'text-2xl'}/>
                     <p className='ml-2 md:text-base text-xs'>
-                      Disinfections and Sterilizations
+                      Khử trùng đồ dùng
                     </p>
                   </div>
                   <div className='flex items-center my-1 md:my-0'>
-                    <GiSmokeBomb />
-                    <p className='ml-2 md:text-base text-xs'>Smoke Detectors</p>
+                    <TbAlarmSmoke className={'text-2xl'}/>
+                    <p className='ml-2 md:text-base text-xs'>Thiết bị báo khói</p>
                   </div>
                 </div>
               </div>
 
               <div className='shadow dark:shadow-white rounded-lg p-6'>
                 <div className='items-center mb-4'>
-                  <p className='md:text-lg font-semibold'>Customer Reviews</p>
+                  <p className='md:text-lg font-semibold'>ĐÁNH GIÁ</p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                   <RoomReview roomId={room._id} />

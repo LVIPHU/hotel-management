@@ -1,7 +1,6 @@
 'use client';
 
 import useSWR from 'swr';
-import { FaSignOutAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import axios from 'axios';
 import { signOut } from 'next-auth/react';
@@ -17,6 +16,7 @@ import Chart from '@/components/Chart/Chart';
 import RatingModal from '@/components/RatingModal/RatingModal';
 import BackDrop from '@/components/BackDrop/BackDrop';
 import toast from 'react-hot-toast';
+import {LiaSignOutAltSolid} from "react-icons/lia";
 
 const UserDetails = (props: { params: { id: string } }) => {
   const {
@@ -109,25 +109,24 @@ const UserDetails = (props: { params: { id: string } }) => {
               </div>
             )}
           </div>
-          <div className='font-normal py-4 text-left'>
-            <h6 className='text-xl font-bold pb-3'>About</h6>
-            <p className='text-sm'>{userData.about ?? ''}</p>
-          </div>
           <div className='font-normal text-left'>
             <h6 className='text-xl font-bold pb-3'>{userData.name}</h6>
           </div>
-          <div className='flex items-center'>
-            <p className='mr-2'>Sign Out</p>
-            <FaSignOutAlt
-              className='text-3xl cursor-pointer'
-              onClick={() => signOut({ callbackUrl: '/' })}
-            />
+          {userData.about ? (
+            <div className='font-normal py-4 text-left'>
+              <h6 className='text-xl font-bold pb-3'>Thông tin</h6>
+              <p className='text-sm'>{userData.about}</p>
+            </div>
+          ) : null}
+          <div className='flex items-center cursor-pointer' onClick={() => signOut({ callbackUrl: '/' })}>
+            <LiaSignOutAltSolid className='text-lg'/>
+            <p className='ml-1'>đăng xuất</p>
           </div>
         </div>
 
         <div className='md:col-span-8 lg:col-span-9'>
           <div className='flex items-center'>
-            <h5 className='text-2xl font-bold mr-3'>Hello, {userData.name}</h5>
+            <h5 className='text-2xl font-bold mr-3'>Xin chào {userData.name}!</h5>
           </div>
           <div className='md:hidden w-14 h-14 rounded-l-full overflow-hidden'>
             {userData.image ? (
@@ -149,14 +148,11 @@ const UserDetails = (props: { params: { id: string } }) => {
           </p>
 
           <p className='text-xs py-2 font-medium'>
-            Joined In {userData._createdAt.split('T')[0]}
+            Ngày đăng ký {userData._createdAt.split('T')[0]}
           </p>
-          <div className='md:hidden flex items-center my-2'>
-            <p className='mr-2'>Sign out</p>
-            <FaSignOutAlt
-              className='text-3xl cursor-pointer'
-              onClick={() => signOut({ callbackUrl: '/' })}
-            />
+          <div className='md:hidden flex items-center my-2 cursor-pointer' onClick={() => signOut({ callbackUrl: '/' })}>
+            <LiaSignOutAltSolid className='text-lg'/>
+            <p className='ml-1'>Đăng xuất</p>
           </div>
 
           <nav className='sticky top-0 px-2 w-fit mx-auto md:w-full md:px-5 py-3 mb-8 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 mt-7'>
@@ -169,9 +165,9 @@ const UserDetails = (props: { params: { id: string } }) => {
                 onClick={() => setCurrentNav('bookings')}
                 className='inline-flex items-center cursor-pointer'
               >
-                <BsJournalBookmarkFill />
-                <a className='inline-flex items-center mx-1 md:mx-3 text-xs md:text-sm font-medium'>
-                  Current Bookings
+                <BsJournalBookmarkFill className={'text-xl'}/>
+                <a className='inline-flex items-center mx-1 md:mx-2 text-xs md:text-sm font-medium'>
+                  Các dịch vụ đã đặt
                 </a>
               </li>
             </ol>
@@ -184,9 +180,9 @@ const UserDetails = (props: { params: { id: string } }) => {
                 onClick={() => setCurrentNav('amount')}
                 className='inline-flex items-center cursor-pointer'
               >
-                <GiMoneyStack />
-                <a className='inline-flex items-center mx-1 md:mx-3 text-xs md:text-sm font-medium'>
-                  Amount Spent
+                <GiMoneyStack className={'text-2xl'}/>
+                <a className='inline-flex items-center mx-1 md:mx-2 text-xs md:text-sm font-medium'>
+                  Số tiền đã chi
                 </a>
               </li>
             </ol>

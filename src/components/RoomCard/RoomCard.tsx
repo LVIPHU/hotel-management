@@ -26,20 +26,20 @@ const RoomCard: FC<Props> = props => {
       </div>
 
       <div className='p-4 bg-white'>
-        <div className='flex justify-between text-xl font-semibold'>
+        <div className='flex flex-col gap-y-3 text-xl font-semibold'>
           <p>{name}</p>
-          <p>$ {price}</p>
+          <p className={'w-full text-right'}>{price} ₫ / 1 Đêm</p>
         </div>
 
-        <p className='pt-2 text-xs'>{type} Room</p>
+        <p className='pt-2 text-md'>{type}</p>
 
-        <p className='pt-3 pb-6'>{description.slice(1, 100)}...</p>
+        <p className='pt-3 pb-6'>{description.slice(0, 97)}...</p>
 
         <Link
           href={`/rooms/${slug.current}`}
           className='bg-primary inline-block text-center w-full py-4 rounded-xl text-white text-xl font-bold hover:-translate-y-2 hover:shadow-lg transition-all duration-500'
         >
-          {isBooked ? 'BOOKED' : 'BOOK NOW'}
+          {isBooked ? 'Đã Được Đặt' : 'Đặt Ngay'}
         </Link>
       </div>
     </div>

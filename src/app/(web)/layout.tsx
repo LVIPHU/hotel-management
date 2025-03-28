@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 
 import Header from '@/components/Header/Header';
 import './globals.css';
@@ -8,11 +8,11 @@ import ThemeProvider from '@/components/ThemeProvider/ThemeProvider';
 import { NextAuthProvider } from '@/components/AuthProvider/AuthProvider';
 import Toast from '@/components/Toast/Toast';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
+const nunito = Nunito({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   style: ['italic', 'normal'],
-  variable: '--font-poppins',
+  variable: '--font-nunito',
 });
 
 export const metadata: Metadata = {
@@ -34,11 +34,11 @@ export default function RootLayout({
           crossOrigin='anonymous'
         />
       </head>
-      <body className={poppins.className}>
+      <body className={nunito.className}>
         <NextAuthProvider>
           <ThemeProvider>
             <Toast />
-            <main className='font-normal'>
+            <main className='font-normal container relative mx-auto px-4 md:px-6 xl:px-12'>
               <Header />
               {children}
               <Footer />

@@ -1,9 +1,9 @@
 import { defineField } from 'sanity';
 
 const roomTypes = [
-  { title: 'Basic', value: 'basic' },
-  { title: 'Luxury', value: 'luxury' },
-  { title: 'Suite', value: 'suite' },
+  { title: 'Hotel', value: 'hotel' },
+  { title: 'Homestay', value: 'homestay' },
+  { title: 'Villa', value: 'villa' },
 ];
 
 const hotelRoom = {
@@ -81,7 +81,7 @@ const hotelRoom = {
         list: roomTypes,
       },
       validation: Rule => Rule.required(),
-      initialValue: 'basic',
+      initialValue: 'homestay',
     }),
     defineField({
       name: 'specialNote',

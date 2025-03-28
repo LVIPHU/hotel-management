@@ -54,13 +54,13 @@ const BookRoomCta: FC<Props> = props => {
         <span
           className={`${discount ? 'text-gray-400' : ''} font-bold text-xl`}
         >
-          $ {price}
+          {price} ₫ / 1 Đêm
         </span>
         {discount ? (
           <span className='font-bold text-xl'>
             {' '}
-            | discount {discount}%. Now{' '}
-            <span className='text-tertiary-dark'>$ {discountPrice}</span>
+            | Giảm giá {discount}%. Ngay bây giờ{' '}
+            <span className='text-tertiary-dark'>{discountPrice} ₫</span>
           </span>
         ) : (
           ''
@@ -77,7 +77,7 @@ const BookRoomCta: FC<Props> = props => {
             htmlFor='check-in-date'
             className='block text-sm font-medium text-gray-900 dark:text-gray-400'
           >
-            Check In date
+            Ngày nhận phòng
           </label>
           <DatePicker
             selected={checkinDate}
@@ -93,7 +93,7 @@ const BookRoomCta: FC<Props> = props => {
             htmlFor='check-out-date'
             className='block text-sm font-medium text-gray-900 dark:text-gray-400'
           >
-            Check Out date
+            Ngày trả phòng
           </label>
           <DatePicker
             selected={checkoutDate}
@@ -113,7 +113,7 @@ const BookRoomCta: FC<Props> = props => {
             htmlFor='adults'
             className='block text-sm font-medium text-gray-900 dark:text-gray-400'
           >
-            Adults
+            Người lớn
           </label>
           <input
             type='number'
@@ -130,7 +130,7 @@ const BookRoomCta: FC<Props> = props => {
             htmlFor='children'
             className='block text-sm font-medium text-gray-900 dark:text-gray-400'
           >
-            Children
+            Con nít
           </label>
           <input
             type='number'
@@ -145,7 +145,7 @@ const BookRoomCta: FC<Props> = props => {
       </div>
 
       {calcNoOfDays() > 0 ? (
-        <p className='mt-3'>Total Price: $ {calcNoOfDays() * discountPrice}</p>
+        <p className='mt-3 w-full text-right'>Tổng số tiền: {calcNoOfDays() * discountPrice} ₫</p>
       ) : (
         <></>
       )}
@@ -155,7 +155,7 @@ const BookRoomCta: FC<Props> = props => {
         onClick={handleBookNowClick}
         className='btn-primary w-full mt-6 disabled:bg-gray-500 disabled:cursor-not-allowed'
       >
-        {isBooked ? 'Booked' : 'Book Now'}
+        {isBooked ? 'Đã Được Đặt' : 'Đặt Ngay'}
       </button>
     </div>
   );
