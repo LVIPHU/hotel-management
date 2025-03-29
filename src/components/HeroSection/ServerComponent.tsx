@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const heading1 = (
   <>
-    <h1 className='font-heading mb-6'>Nghỉ Dưỡng Trong Ngôi Nhà Mơ Ước</h1>
+    <h1 className='font-heading mb-6'>Thư Giãn Trong Ngôi Nhà Mơ Ước</h1>
     <p className='text-xl text-[#4a4a4a] dark:text-[#ffffffea] mb-12 max-w-lg'>
       Vô vàn lựa chọn từ nhà gỗ, biệt thự và hơn thế nữa.
     </p>
