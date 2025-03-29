@@ -15,7 +15,7 @@ const RoomCard: FC<Props> = props => {
   } = props;
 
   return (
-    <div className='rounded-xl w-72 mb-10 mx-auto md:mx-0 overflow-hidden text-black'>
+    <div className='rounded-xl w-full mb-10 mx-auto md:mx-0 overflow-hidden text-black'>
       <div className='h-60 overflow-hidden'>
         <Image
           src={coverImage.url}
@@ -29,7 +29,7 @@ const RoomCard: FC<Props> = props => {
       <div className='p-4 bg-white'>
         <div className='flex flex-col gap-y-3 text-xl font-semibold'>
           <p>{name}</p>
-          <p className={'w-full text-right'}>{formatMoney(price)} ₫ / 1 Đêm</p>
+          <p className={'w-full text-right'}>{formatMoney(price)} ₫</p>
         </div>
 
         <p className='pt-2 text-md'>{type}</p>

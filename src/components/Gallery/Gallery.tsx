@@ -5,8 +5,8 @@ const Gallery = () => {
         <section className='mx-auto container my-16 h-full'>
             <h3 className='font-heading mb-3'>Khám phá Việt Nam</h3>
             <p className='mb-6 text-xs lg:text-xl'>Các điểm đến phổ biến này có nhiều điều chờ đón bạn</p>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                <div className='grid grid-cols-2 gap-6'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <div className='h-96 relative'>
                         <Image
                             alt='Da Lat'
@@ -35,7 +35,7 @@ const Gallery = () => {
                         />
                     </div>
                 </div>
-                <div className='grid grid-cols-2 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <div className='col-span-2 h-96 relative'>
                         <Image
                             alt='Ha Noi'

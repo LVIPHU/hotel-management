@@ -59,7 +59,7 @@ const Rooms = () => {
   const filteredRooms = filterRooms(data || []);
 
   return (
-    <div className='container mx-auto pt-10'>
+    <div className='pt-10'>
       <Search
         roomTypeFilter={roomTypeFilter}
         searchQuery={searchQuery}
@@ -67,11 +67,11 @@ const Rooms = () => {
         setSearchQuery={setSearchQuery}
       />
 
-      <div className='flex mt-20 justify-between flex-wrap'>
+      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20'>
         {filteredRooms.map(room => (
           <RoomCard key={room._id} room={room} />
         ))}
-      </div>
+      </section>
     </div>
   );
 };
